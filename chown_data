@@ -1,0 +1,4 @@
+#!/bin/bash
+
+chown -R $(ls -ld /app/index.php | awk '{print $3}'): /docker-volume/
+rm -- "$0" # Bash suicide script

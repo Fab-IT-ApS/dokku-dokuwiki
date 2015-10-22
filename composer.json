@@ -1,0 +1,16 @@
+{
+    "name": "cmol/dokku-dokuwiki",
+    "description": "Composer for dokuwiki",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Claus Lensbøl",
+            "email": "claus@fab-it.dk"
+        }
+    ],
+    "require": {
+        "ext-gd": ">= 0.0.0",
+        "splitbrain/php-archive": "1.0.7",
+        "easybook/geshi": "v1.0.8.15"
+    }
+}

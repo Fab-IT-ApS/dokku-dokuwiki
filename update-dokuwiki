@@ -1,0 +1,24 @@
+#!/bin/bash
+
+PRETXT="-------- "
+
+echo $PRETXT"Step 1: Downloading latest dokuwiki"
+wget -O latest.tgz http://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz
+
+echo $PRETXT"Step 2: Unpacking an deleting select folders"
+tar -zxvf latest.tgz
+rm -r dokuwiki*/data dokuwiki*/conf dokuwiki*/lib/plugins
+
+echo $PRETXT"Step 3: Updating files"
+rm -r $(ls -1 | grep -v -E 'update-dokuwiki|Procfile|SCALE|README.md|^dokuwiki|composer.json|chown_data')
+cp -r dokuwiki*/* .
+
+echo $PRETXT"Step 4: Cleanup downloads"
+rm -r dokuwiki*
+
+echo $PRETXT"Update complete!"
+echo $PRETXT"You will have to check in and push the changes"
+echo $PRETXT"to your dokku master."
+echo $PRETXT
+echo $PRETXT"If you are having problems, consult README.md."
+
