@@ -34,8 +34,17 @@ It gives you something like:
  - Add directories
 
 ```bash
-mkdir /home/dokku/.o_volume/data/1a298698-b480-4242-81e9-db98161932b3/{data,conf,plugins}
+cd /tmp
+wget -O latest.tgz http://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz
+tar -zxvf latest.tgz
+cp -r dokuwiki*/data /home/dokku/.o_volume/data/1a298698-b480-4242-81e9-db98161932b3/
+cp -r dokuwiki*/conf /home/dokku/.o_volume/data/1a298698-b480-4242-81e9-db98161932b3/
+cp -r dokuwiki*/lib/plugins /home/dokku/.o_volume/data/1a298698-b480-4242-81e9-db98161932b3/
+rm -r dokuwiki* latest.tgz
 ```
+
+**NOTE:** If you are migrating an existing dokuwiki, copy in the `data`,
+`conf` and `lib/plugins` directories into the created volume (as above).
 
 ## Notes first use and upgrading
 
